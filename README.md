@@ -15,7 +15,7 @@ Anaconda 4.2.9
 Tensorflow 1.5.0
 
 ## Step 1: build tensorflow C++ static library
-Reference [SHI Weili@meidum](https://medium.com/@shiweili/building-tensorflow-c-shared-library-on-windows-e79c90e23e6e) and [Joe Antognini@github](https://joe-antognini.github.io/machine-learning/build-windows-tf)
+References:  [SHI Weili @ meidum](https://medium.com/@shiweili/building-tensorflow-c-shared-library-on-windows-e79c90e23e6e) and [Joe Antognini @ github](https://joe-antognini.github.io/machine-learning/build-windows-tf)
 ### 1.1 setup python environment
 In *anaconda prompt*, execute the following code to setup a new environment with name "tf_cplusplus" with python 3.5, I recommend using **pip** to install numpy because sometimes **conda install** gives weird version error.
 ```
@@ -92,7 +92,7 @@ which indicates that tensorflow with GPU works in your station, the next step wo
 ### 2.1 Create a visual studio C++ console project
 Make sure the configuration is x64 and release
 ### 2.2 Source code
-Refer to [Tebesu @ github](https://tebesu.github.io/posts/Training-a-TensorFlow-graph-in-C++-API), you can test your program with the following source code:
+Refer to [Tebesu @ github](https://tebesu.github.io/posts/Training-a-TensorFlow-graph-in-C++-API), you can test your program with the following source code with a pre-trained file "mlp.pb" (available on [github link](https://github.com/tebesu/Tensorflow-Cpp-API-Training)):
 ```
 #include "tensorflow/core/public/session.h"
 #include "tensorflow/core/graph/default_device.h"
@@ -238,7 +238,7 @@ which located in the following *Additional library directories*:
 {tensorflow}\v1.5.0\tensorflow\contrib\cmake\build\nsync\src\nsync\Release;  
 
 2.4 Setup command line options
-[why](https://github.com/tensorflow/tensorflow/issues/4242#issuecomment-245436151)  [why2](https://joe-antognini.github.io/machine-learning/windows-tf-project)
+[why do I need to setup them](https://github.com/tensorflow/tensorflow/issues/4242#issuecomment-245436151)  [another explanation](https://joe-antognini.github.io/machine-learning/windows-tf-project)
 ```
 /machine:x64
 /ignore:4049 /ignore:4197 /ignore:4217 /ignore:4221
