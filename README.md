@@ -8,7 +8,7 @@
 Visual studio 2015 (14.0.25431 update3)  
 Git 2.15.0  
 SWIG 3.0.12  
-Cmake 2.13.0 rc3
+Cmake 2.13.0 rc3  
 CUDA 9.0  
 cuDNN 7.4.1  
 Anaconda 4.2.9  
