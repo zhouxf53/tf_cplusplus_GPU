@@ -1,4 +1,4 @@
-# Tensorflow C++ GPU API example and tutorial 
+# Tensorflow-GPU C++ API example and tutorial 
 
 ## Hardware configurations/platform(s) tested
 1. OS:   Windows 10 (10.0.17134 N/A Build 17134)  
