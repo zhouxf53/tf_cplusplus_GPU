@@ -20,7 +20,7 @@ References:  [SHI Weili @ meidum](https://medium.com/@shiweili/building-tensorfl
 In *anaconda prompt*, execute the following code to setup a new environment with name "tf_cplusplus" with python 3.5, I recommend using **pip** to install numpy because sometimes **conda install** gives weird version error.
 ```
 conda create -n tf_cplusplus pip python=3.5
-activate tensorflow
+activate tf_cplusplus
 conda install numpy
 ```
 ### 1.2 Acquire tensorflow 1.5.0 source code
