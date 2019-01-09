@@ -10,9 +10,9 @@ Git 2.15.0
 SWIG 3.0.12  
 Cmake 2.13.0 rc3
 CUDA 9.0  
-cuDNN 7.4.1
-Anaconda 4.2.9
-Tensorflow 1.5.0
+cuDNN 7.4.1  
+Anaconda 4.2.9  
+Tensorflow 1.5.0  
 
 ## Step 1: build tensorflow C++ static library
 References:  [SHI Weili @ meidum](https://medium.com/@shiweili/building-tensorflow-c-shared-library-on-windows-e79c90e23e6e) and [Joe Antognini @ github](https://joe-antognini.github.io/machine-learning/build-windows-tf)
@@ -238,6 +238,7 @@ which located in the following *Additional library directories*:
 {tensorflow}\v1.5.0\tensorflow\contrib\cmake\build\nsync\src\nsync\Release;  
 
 2.4 Setup command line options
+
 [why do I need to setup them](https://github.com/tensorflow/tensorflow/issues/4242#issuecomment-245436151)  [another explanation](https://joe-antognini.github.io/machine-learning/windows-tf-project)
 ```
 /machine:x64
