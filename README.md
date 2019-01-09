@@ -55,7 +55,7 @@ cmake .. -A x64 ^
 ### 1.5 Build tensorflow
 The next step would be actually building tensorflow, it is recommended to disable parallelism to minimize the chance of running of heap spaces by setting m to 1. You should also consider to increase the virtual memory of your machine to over 15G. Continue executing the following code in *vs command prompt*:
 ```
-“C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\amd64\MSBuild.exe” ^
+“C:\Program Files (x86)\MSBuild\14.0\Bin\amd64\MSBuild.exe” ^
 /m:1 ^
 /p:CL_MPCount=1 ^
 /p:Configuration=Release ^
