@@ -5,7 +5,6 @@
 #include "tensorflow/core/public/session.h"
 #include "tensorflow/core/graph/default_device.h"
 
-
 using namespace tensorflow;
 
 int main(int argc, char* argv[]) {
