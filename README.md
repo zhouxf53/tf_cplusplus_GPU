@@ -17,7 +17,7 @@ Note that the current version of tensorflow no longer supports CMake [source](ht
 
 
 ## Step 1: build tensorflow C++ static library
-References:  [SHI Weili @ meidum](https://medium.com/@shiweili/building-tensorflow-c-shared-library-on-windows-e79c90e23e6e) and [Joe Antognini @ github](https://joe-antognini.github.io/machine-learning/build-windows-tf)
+References:  [SHI Weili @ medium](https://medium.com/@shiweili/building-tensorflow-c-shared-library-on-windows-e79c90e23e6e) and [Joe Antognini @ github](https://joe-antognini.github.io/machine-learning/build-windows-tf)
 ### 1.1 setup python environment
 In *anaconda prompt*, execute the following code to setup a new environment with name "tf_cplusplus" with python 3.5, I recommend using **pip** to install numpy because sometimes **conda install** gives weird version error.
 ```
