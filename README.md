@@ -13,6 +13,8 @@ CUDA 9.0
 cuDNN 7.4.1  
 Anaconda 4.2.9  
 Tensorflow 1.5.0  
+Note that the current version of tensorflow no longer supports CMake [source](https://github.com/tensorflow/tensorflow/issues/23679)
+
 
 ## Step 1: build tensorflow C++ static library
 References:  [SHI Weili @ meidum](https://medium.com/@shiweili/building-tensorflow-c-shared-library-on-windows-e79c90e23e6e) and [Joe Antognini @ github](https://joe-antognini.github.io/machine-learning/build-windows-tf)
