@@ -52,7 +52,8 @@ cmake .. -A x64 ^
 -Dtensorflow_BUILD_PYTHON_BINDINGS=OFF ^
 -Dtensorflow_ENABLE_GRPC_SUPPORT=OFF ^
 -Dtensorflow_BUILD_SHARED_LIB=ON ^
--DCUDA_HOST_COMPILER="C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/amd64/cl.exe"
+-DCUDA_HOST_COMPILER="C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/amd64/cl.exe" ^
+-DCUDA_SDK_ROOT_DIR="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0"
 ```
 ### 1.5 Build tensorflow
 The next step would be actually building tensorflow, it is recommended to disable parallelism to minimize the chance of running of heap spaces by setting m to 1. You should also consider to increase the virtual memory of your machine to over 15G. Continue executing the following code in *vs command prompt*:
