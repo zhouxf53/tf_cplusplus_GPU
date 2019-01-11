@@ -75,7 +75,7 @@ cmake .. -A x64 ^
 -DCUDA_HOST_COMPILER="C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/amd64/cl.exe" ^
 -DCUDA_SDK_ROOT_DIR="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0"
 ```
-Notes: I tried to build TF 1.10.0 with -Dtensorflow_ENABLE_GRPC_SUPPORT=OFF, error of “grpcpp/grpcpp.h”: No such file or directory was given, could be a bug [issue](https://github.com/tensorflow/tensorflow/issues/19893) and [potential solution in Chinese](https://blog.csdn.net/whunamikey/article/details/82143334). But the option of GRPC ON works for me, so I did not proceed.
+Notes: I tried to build TF 1.10.0 with -Dtensorflow_ENABLE_GRPC_SUPPORT=OFF, error of “grpcpp/grpcpp.h”: No such file or directory was given, could be a bug ([issue](https://github.com/tensorflow/tensorflow/issues/19893) and [potential solution in Chinese](https://blog.csdn.net/whunamikey/article/details/82143334)). But the option of GRPC ON works for me, so I did not proceed to debug.
 
 ### 1.5 Build tensorflow
 The next step would be actually building tensorflow, it is recommended to disable parallelism to minimize the chance of running of heap spaces by setting m to 1. You should also consider to increase the virtual memory of your machine to over 15G. Continue executing the following code in *vs command prompt* (for both TF versions):
@@ -99,7 +99,7 @@ You should have results like
 name: GeForce GTX 1070 major: 6 minor: 1 memoryClockRate(GHz): 1.683
 pciBusID: 0000:01:00.0
 totalMemory: 8.00GiB freeMemory: 6.63GiB
-2019-01-09 16:31:40.067433: I D:\DSM_project\DSM_dependencies\v1.5.0\tensorflow\core\common_runtime\gpu\gpu_device.cc:1195] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1070, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2019-01-09 16:31:40.067433: I {tensorflow}\v1.5.0\tensorflow\core\common_runtime\gpu\gpu_device.cc:1195] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1070, pci bus id: 0000:01:00.0, compute capability: 6.1)
 000000/000001 lambda = 2.283615 x = [0.773146 0.634228] y = [3.587894 -0.773146]
 000000/000009 lambda = 2.283615 x = [0.773146 0.634228] y = [3.587894 -0.773146]
 000000/000000 lambda = 2.283615 x = [0.773146 0.634228] y = [3.587894 -0.773146]
@@ -288,7 +288,7 @@ You should have a similar result as mine:
 name: GeForce GTX 1070 major: 6 minor: 1 memoryClockRate(GHz): 1.683
 pciBusID: 0000:01:00.0
 totalMemory: 8.00GiB freeMemory: 6.63GiB
-2019-01-09 17:00:29.682091: I D:\DSM_project\DSM_dependencies\v1.5.0\tensorflow\core\common_runtime\gpu\gpu_device.cc:1195] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1070, pci bus id: 0000:01:00.0, compute capability: 6.1)
+2019-01-09 17:00:29.682091: I {tensorflow}\v1.5.0\tensorflow\core\common_runtime\gpu\gpu_device.cc:1195] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: GeForce GTX 1070, pci bus id: 0000:01:00.0, compute capability: 6.1)
 Cost: 264.194
 Cost: 256.987
 Cost: 249.912
