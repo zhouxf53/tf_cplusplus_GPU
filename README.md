@@ -24,7 +24,7 @@ In *anaconda prompt*, execute the following code to setup a new environment with
 ```
 conda create -n tf_cplusplus pip python=3.5
 activate tf_cplusplus
-conda install numpy
+pip install numpy
 ```
 ### 1.2 Acquire tensorflow 1.5.0 source code
 In *vs2015 native tools command prompt* (elevated access recommended), for tensorflow (TF) 1.5.0, do
