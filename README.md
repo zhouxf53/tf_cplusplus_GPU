@@ -1,5 +1,6 @@
 # Tensorflow-GPU C++ API example and tutorial 
-
+## Summary
+Tested the capability of Tensorflow 1.10.0/1.5.0 running with C++ static library (build with CMake) in Visual Studio 2015.
 ## Hardware configurations/platform(s) tested
 1. OS:   Windows 10 (10.0.17134 N/A Build 17134)  
    CPU:	Intel(R) Core(TM) i7-8086K CPU @ 4.00GHz, 4008 Mhz, 6 Core(s), 12 Logical Processor(s)  
@@ -12,8 +13,8 @@ Cmake 2.13.0 rc3
 CUDA 9.0  
 cuDNN 7.4.1  
 Anaconda 4.2.9  
-Tensorflow 1.5.0  
-Note that the current version of tensorflow no longer supports CMake [source](https://github.com/tensorflow/tensorflow/issues/23679)
+Tensorflow 1.5.0/1.10.0  
+Note that the version after 1.10.0 of tensorflow no longer supports CMake [source](https://github.com/tensorflow/tensorflow/issues/23679)
 
 
 ## Step 1: build tensorflow C++ static library
@@ -26,11 +27,18 @@ activate tf_cplusplus
 conda install numpy
 ```
 ### 1.2 Acquire tensorflow 1.5.0 source code
-In *vs2015 native tools command prompt* (elevated access recommended), do
+In *vs2015 native tools command prompt* (elevated access recommended), for tensorflow (TF) 1.5.0, do
 ```
 git clone https://github.com/tensorflow/tensorflow.git v1.5.0
 cd v1.5.0
 git checkout tags/v1.5.0
+```
+
+For 1.10.0, do
+```
+git clone https://github.com/tensorflow/tensorflow.git v1.10.0
+cd v1.10.0
+git checkout tags/v1.10.0
 ```
 ### 1.3 Create working directory
 Continue executing the following code in *vs command prompt*:
@@ -40,7 +48,7 @@ mkdir build
 cd build
 ```
 ### 1.4 Setup CMake
-Continue executing the following code in *vs command prompt*, be aware that the location of the swig, python environment, CUDA, and vs installation location may vary on your station, **please change those locations**:
+Continue executing the following code in *vs command prompt*, be aware that the location of the swig, python environment, CUDA, and vs installation location may vary on your station, **please change those locations**, for TF 1.5.0, do:
 ```
 cmake .. -A x64 ^
 -DCMAKE_BUILD_TYPE=Release ^
@@ -53,10 +61,24 @@ cmake .. -A x64 ^
 -Dtensorflow_ENABLE_GRPC_SUPPORT=OFF ^
 -Dtensorflow_BUILD_SHARED_LIB=ON ^
 -DCUDA_HOST_COMPILER="C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/amd64/cl.exe" ^
+```
+for TF 1.10.0, do:
+```
+cmake .. -A x64 ^
+-DCMAKE_BUILD_TYPE=Release ^
+-DPYTHON_EXECUTABLE=C:\Users\xzhou\AppData\Local\Continuum\Anaconda3\envs\cplusplus_tf\python.exe ^
+-Dtensorflow_ENABLE_GPU=ON ^
+-DCUDNN_HOME="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0" ^
+-Dtensorflow_BUILD_PYTHON_BINDINGS=OFF ^
+-Dtensorflow_ENABLE_GRPC_SUPPORT=ON ^
+-Dtensorflow_BUILD_SHARED_LIB=ON ^
+-DCUDA_HOST_COMPILER="C:/Program Files (x86)/Microsoft Visual Studio 14.0/VC/bin/amd64/cl.exe" ^
 -DCUDA_SDK_ROOT_DIR="C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0"
 ```
+Notes: I tried to build TF 1.10.0 with -Dtensorflow_ENABLE_GRPC_SUPPORT=OFF, error of “grpcpp/grpcpp.h”: No such file or directory was given, could be a bug [issue](https://github.com/tensorflow/tensorflow/issues/19893) and [potential solution in Chinese](https://blog.csdn.net/whunamikey/article/details/82143334). But the option of GRPC ON works for me, so I did not proceed.
+
 ### 1.5 Build tensorflow
-The next step would be actually building tensorflow, it is recommended to disable parallelism to minimize the chance of running of heap spaces by setting m to 1. You should also consider to increase the virtual memory of your machine to over 15G. Continue executing the following code in *vs command prompt*:
+The next step would be actually building tensorflow, it is recommended to disable parallelism to minimize the chance of running of heap spaces by setting m to 1. You should also consider to increase the virtual memory of your machine to over 15G. Continue executing the following code in *vs command prompt* (for both TF versions):
 ```
 “C:\Program Files (x86)\MSBuild\14.0\Bin\amd64\MSBuild.exe” ^
 /m:1 ^
@@ -148,7 +170,7 @@ int main(int argc, char* argv[]) {
 }
 ```
 ### 2.3 Setup additional include directories
-The header files you needed would be located on the following locations, make sure they are all included, please be noted **the location on your station may vary**: 
+The header files you needed would be located on the following locations, make sure they are all included, please be noted **the location on your station may vary**, for 1.10.0, change those directories accordingly: 
 
 {tensorflow}\v1.5.0\tensorflow\contrib\cmake\build\protobuf\src\protobuf\Release;  
 {tensorflow}\v1.5.0\tensorflow\contrib\cmake\build\tf_cc.dir\Release;  
